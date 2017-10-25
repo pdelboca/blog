@@ -1,0 +1,61 @@
+---
+title: Emisiones de gases de efecto invernadero
+author: Patricio Del Boca
+date: '2017-10-25'
+slug: emisiones-de-gases-de-efecto-invernadero
+categories:
+  - r
+tags:
+  - ggplot2
+  - dataviz
+  - opendata
+---
+
+Hoy me encontré con el nuevo portal de datos abiertos del [Ministerio de Ambiente y Desarrollo Sustentable](http://datos.ambiente.gob.ar/) y chusmeando algunos de los datos encontré algo interesante sobre emisión de Gases de Efecto Invernadero (GEI).
+
+Trivia.... La emisión per-cápita en los últimos 20 años:
+
+ - ¿Aumentó?
+ - ¿Disminuyó?
+ - ¿Se mantuvo constante?
+
+Aquí un poco de código para responder la pregunta:
+ 
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(stringr)
+library(dplyr)
+library(lubridate)
+
+url <- "http://datos.ambiente.gob.ar/dataset/09924bea-0458-4777-ab54-e74cbc5d3e8e/resource/f02bced4-8cd2-487e-b4e9-4443a83a2539/download/emisiones-gei-por-habitante.csv"
+emisiones <- read.csv(url, sep = ";")
+colnames(emisiones) <- str_replace(colnames(emisiones),
+                                   pattern = "\\.",
+                                   replacement = "")
+emisiones <- emisiones %>%
+  mutate(emisiones_gei_anio = dmy(paste0("01-01-",emisiones_gei_anio)))
+
+puntos <- emisiones[c(1,18,25),]
+puntos$emisiones_gei_habitante <- round(puntos$emisiones_gei_habitante, 2)
+
+ggplot(emisiones, aes(x=emisiones_gei_anio, y=emisiones_gei_habitante)) + 
+  geom_line(color = "steelblue", size = 1.5) +
+  theme_minimal() +
+  labs(title="Emisiones de gases de efecto invernadero (GEI) por habitante",
+       subtitle = "Inventario total de GEI de la República Argentina dividido por la cantidad de habitantes (población total).",
+       caption = "Fuente: @pdelboca con datos de http://datos.ambiente.gob.ar",
+       y = "Emisiones (tCO2eq/habitante)",
+       x = "Año") +
+  scale_x_date(date_breaks = "2 years",date_labels = "%Y",date_minor_breaks = "2 years") +
+  scale_y_continuous(limits = c(0,12)) +
+  geom_point(data=puntos, 
+             aes(x=emisiones_gei_anio, y=emisiones_gei_habitante), 
+             size = 3, 
+             color = "cadetblue2") +
+  annotate("text", 
+           x = puntos$emisiones_gei_anio, 
+           y = puntos$emisiones_gei_habitante, 
+           label = puntos$emisiones_gei_habitante,
+           vjust = -1)
+
+```

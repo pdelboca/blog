@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Un Blog de Datos Minimalista</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Un Blog de Datos Minimalista</description>
+    <title>R on Un Blog de Datos Minimalista</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Un Blog de Datos Minimalista</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,16 +21,6 @@
 Trivia…. La emisión per-cápita en los últimos 20 años:
 ¿Aumentó?¿Disminuyó?¿Se mantuvo constante?Aquí un poco de código para responder la pregunta:
 library(ggplot2)library(stringr)library(dplyr)library(lubridate)url &amp;lt;- &amp;quot;http://datos.ambiente.gob.ar/dataset/09924bea-0458-4777-ab54-e74cbc5d3e8e/resource/f02bced4-8cd2-487e-b4e9-4443a83a2539/download/emisiones-gei-por-habitante.csv&amp;quot;emisiones &amp;lt;- read.csv(url, sep = &amp;quot;;&amp;quot;)colnames(emisiones) &amp;lt;- str_replace(colnames(emisiones),pattern = &amp;quot;\\.</description>
-    </item>
-    
-    <item>
-      <title>Contando Procesos con PowerShell</title>
-      <link>/post/2017/10/10/testing/</link>
-      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017/10/10/testing/</guid>
-      <description>El otro dia tuve que montar un cluster de Microsoft R Server (recientemente renombrado Machine Learning Server). En un momento dado tuve que realizar unas pruebas de performance y para ello necesitaba aumentar el número de Shell Pools que proveen los servicios para la ejecución de código remoto.
-Dado que el proceso de creación puede ser un poco lento y la cantidad de Pools grande tenía ganas de ir monitoreando en la inea de comandos la cantidad de procesos creados.</description>
     </item>
     
   </channel>
