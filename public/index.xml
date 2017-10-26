@@ -44,6 +44,15 @@ Conjunto de Datoslibrary(dplyr)library(tidytext)library(wordcloud)library(RC
     </item>
     
     <item>
+      <title>Caja de Jubilaciones CBA</title>
+      <link>/post/2016/07/26/caja-de-jubilaciones-cba/</link>
+      <pubDate>Tue, 26 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/07/26/caja-de-jubilaciones-cba/</guid>
+      <description>Siguiendo la iniciativa de Datos Abiertos, la Caja de Jubilaciones pone a disposición las bases de datos de Jubilaciones y Pensiones, Aportantes y Espacio Illia. En la Pagina de Transparencia de la Caja de Jubilaciones ya hay un lindo resumen titulado “La Caja en Números” con información de interés para la comunidad. En un acto de pura curiosidad, desde Open Data Cordoba, le dedicamos un poco más de tiempo a chusmear que hay en estos datos para responder algunas preguntas que en dicho resumen no se contestan.</description>
+    </item>
+    
+    <item>
       <title>About Hugo XMin</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
