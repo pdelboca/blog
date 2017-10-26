@@ -23,5 +23,15 @@ Trivia…. La emisión per-cápita en los últimos 20 años:
 library(ggplot2)library(stringr)library(dplyr)library(lubridate)url &amp;lt;- &amp;quot;http://datos.ambiente.gob.ar/dataset/09924bea-0458-4777-ab54-e74cbc5d3e8e/resource/f02bced4-8cd2-487e-b4e9-4443a83a2539/download/emisiones-gei-por-habitante.csv&amp;quot;emisiones &amp;lt;- read.csv(url, sep = &amp;quot;;&amp;quot;)colnames(emisiones) &amp;lt;- str_replace(colnames(emisiones),pattern = &amp;quot;\\.</description>
     </item>
     
+    <item>
+      <title>Analisis Letras Folclore</title>
+      <link>/post/2017/06/09/analisis-letras-folclore/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/06/09/analisis-letras-folclore/</guid>
+      <description>Letras del Folklore Argentino: ¿A qué le cantan?El siguiente es un análisis exploratorio para resolver una curiosidad: ¿A qué le canta el folclore Argentino?. El Objetivo es, inicialmente, extraer las palabras y frases más utilizadas. Luego trataremos de ampliar el análisis tratando de agrupar las canciones en distintas categorías, descubrir temáticas en común, agrupar autores por estilo, etc.
+Conjunto de Datoslibrary(dplyr)library(tidytext)library(wordcloud)library(RColorBrewer)library(ggplot2)knitr::opts_chunk$set(echo = TRUE)dat &amp;lt;- readr::read_csv(&amp;quot;.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -33,5 +33,15 @@ library(ggplot2)library(stringr)library(dplyr)library(lubridate)url &amp;lt;
 Dado que el proceso de creación puede ser un poco lento y la cantidad de Pools grande tenía ganas de ir monitoreando en la inea de comandos la cantidad de procesos creados.</description>
     </item>
     
+    <item>
+      <title>Analisis Letras Folclore</title>
+      <link>/post/2017/06/09/analisis-letras-folclore/</link>
+      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/06/09/analisis-letras-folclore/</guid>
+      <description>Letras del Folklore Argentino: ¿A qué le cantan?El siguiente es un análisis exploratorio para resolver una curiosidad: ¿A qué le canta el folclore Argentino?. El Objetivo es, inicialmente, extraer las palabras y frases más utilizadas. Luego trataremos de ampliar el análisis tratando de agrupar las canciones en distintas categorías, descubrir temáticas en común, agrupar autores por estilo, etc.
+Conjunto de Datoslibrary(dplyr)library(tidytext)library(wordcloud)library(RColorBrewer)library(ggplot2)knitr::opts_chunk$set(echo = TRUE)dat &amp;lt;- readr::read_csv(&amp;quot;.</description>
+    </item>
+    
   </channel>
 </rss>

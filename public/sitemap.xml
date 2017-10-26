@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>/post/2017/06/09/analisis-letras-folclore/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
   </url>
   
@@ -63,6 +68,12 @@
   </url>
   
   <url>
+    <loc>/tags/rvest/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/scripting/</loc>
     <lastmod>2017-10-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -71,6 +82,12 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/web-scrapping/</loc>
+    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
