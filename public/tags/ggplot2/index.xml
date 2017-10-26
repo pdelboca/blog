@@ -24,6 +24,16 @@ library(ggplot2)library(stringr)library(dplyr)library(lubridate)url &amp;lt;
     </item>
     
     <item>
+      <title>Transporte Público de Córdoba</title>
+      <link>/post/2016/11/30/transporte-publico-de-cordoba/</link>
+      <pubDate>Wed, 30 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/11/30/transporte-publico-de-cordoba/</guid>
+      <description>Esta semana en Twitter se armó una charla acerca de la reciente noticia sobre el aumento del precio del boleto en la ciudad de Córdoba. De la charla surgieron ideas como cruzar datos como inflación, cantidad de pasajeros o kilómetros recorridos para extraer algo extra de información que pueda ser de interés.
+Pusimos manos a la obra y empezamos revisando el Portal de Datos Abiertos de la Ciudad de Córdoba. Allí encontramos datos sobre el uso del Transporte Urbano de Córdoba.</description>
+    </item>
+    
+    <item>
       <title>Inflacion vs Paritarias</title>
       <link>/post/2016/08/03/inflacion-vs-paritarias/</link>
       <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
