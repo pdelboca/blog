@@ -1,0 +1,155 @@
+---
+title: Web Scrapping y Analisis de Texto
+author: pdelboca
+date: '2017-12-13'
+slug: web-scrapping-y-analisis-de-texto
+categories:
+  - r
+tags:
+  - rvest
+  - web scrapping
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+library(tidytext)
+library(tidyverse)
+library(rvest)
+library(stringr)
+```
+
+
+El siguiente post nace de la necesidad de explicar un poco el procedimineto y las herramientas que usé para obtener los datos para los artículos donde analizo las letras de Folclore y Cuarteto: 
+
+ * [Letras del Folklore Argentino: ¿A qué le cantan?](http://blog.opendatacordoba.org/letras-del-folklore-argentino-a-que-le-cantan/)
+ * [¿A qué le canta y quién escribe el cuarteto cordobés?](http://www.perfil.com/cordoba/a-que-le-canta-y-quien-escribe-el-cuarteto-cordobes.phtml)
+ 
+ 
+# Idea Principal
+
+La idea principal surge de la curiosidad de entender o al menos chusmear a qué le cantaba el Folclore Argentino, luego gracias a una periodista interesada hice lo mismo pero para el Cuarteto Cordobés. Los análisis que se pueden realizar del conjunto de letras son muchos pero dado mi tiempo me bastaba con simplemente hacer un listado de las palabras más utilizadas.
+
+Para responder esto necesitaba:
+
+ * Páginas para descargarme las letras
+ * Alguna herramienta de Web Scrapping
+ * Alguna herramienta para el procesamiento de texto.
+
+
+Voy a detallar a continuación el proceso para uno de los artículos y una de las páginas.
+
+# Herramientas
+
+ * Para Web Scrapping: [rvest](https://github.com/hadley/rvest)
+ * Para manipulación de Datos: [tidyverse](https://github.com/tidyverse) y en particular [purrr](https://github.com/tidyverse/purrr)
+ * Para el listado de Palabras: [tidytext](http://tidytextmining.com/)
+ * Para extrar el CSS Selector: [GadgetSelector](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb)
+ 
+# Obtención de Datos
+
+Para obtener datos sobre letras de cuarteto, consulté varias páginas web. En este artículo me voy a enfocar en [http://www.sonicomusica.com](http://www.sonicomusica.com).
+
+Lo que necesito hacer es:
+
+ * Encontrar la sección de Cuarteto de la página (http://www.sonicomusica.com/cuarteto/)
+ * Extraer de la misma los artistas y la página de cada uno de ellos
+ * Por cada página de artista, extraer las páginas de sus respectivas canciones y letras
+ * Por cada página de letra, extraer el texto de la misma.
+ 
+Básicamente, un ciclo iterativo.
+
+## Extrayendo nombre  y URL de los artistas
+
+El elemento básico del que voy a partir es un data frame conteniendo nombre y URL de cada artista. Para ello:
+
+```{r, eval=FALSE}
+baseUrl <- "http://www.sonicomusica.com"
+paginaArtistas <- read_html(str_c(baseUrl, "/cuarteto/"))
+
+nombreArtista <- paginaArtistas %>%
+  html_nodes(".nameartist") %>%
+  html_text()
+
+urlArtista <- paginaArtistas  %>%
+  html_nodes(".nameartist a") %>%
+  html_attr("href")
+
+dataArtistas <- data.frame(nombreArtista = nombreArtista, 
+                          urlArtista = str_c(baseUrl, urlArtista), 
+                          stringsAsFactors = FALSE)
+```
+
+## Extracción de URL y Texto de Canciones
+Ahora que tengo los datos de los Artistas, necesito empezar el ciclo de iteraciones para descargar URL de las canciones y posteriormente su letra. En vez de usar loops, quise utilizar el excelente paquete purrr. La lógica va a ser la siguiente:
+ 
+ * Por cada elemento a extraer del HTML (link de cancion y letra) voy a definir una función.
+ * Luego utilizaré dicha función, como argumento de la función map.
+ * Encadenaré todas las acciones de lectura, extracción y limpieza en un pipeline de dplyr
+
+```{r, eval=FALSE}
+getURLCanciones <- function(urlArtista){
+  message(sprintf("Scrapeando URL canciones de: %s", urlArtista))
+  read_html(urlArtista) %>%
+    html_nodes(".listitems article a") %>%
+    html_attr("href")
+}
+
+getLetraCancion <- function(urlCancion){
+    message(sprintf(urlCancion))
+    read_html(urlCancion, options = "RECOVER") %>%
+    html_node("#lyricSong pre") %>%
+    html_text()
+}
+```
+
+Ahora anido todas las llamadas a estas funciones utilizando dplyr, tidyr y purr:
+
+```{r, eval=FALSE}
+dataCanciones <- dataArtistas %>%
+  mutate(urlCancion = urlArtista %>% map(getURLCanciones)) %>%
+  unnest() %>%
+  mutate(urlCancion = str_c(baseUrl, urlCancion),
+         urlCancion = str_replace_all(urlCancion, " ", "%20")) %>%
+  mutate(letraCancion = urlCancion %>% map(getLetraCancion))
+  
+```
+
+Listo, con este código tenemos completa la lista de canciones y sus respectivas letras para comenzar con el análisis.
+
+# Limpieza de datos
+Vamos a remover Letras no disponibles, finales de linea y palabras entre paréntesis.
+
+```{r}
+dataCanciones <- dataCanciones %>% 
+    filter(letraCancion != "Letra no disponible") %>%
+    mutate(letraCancion = gsub( " *\\(.*?\\) *", "", letraCancion),
+         letraCancion = gsub( "\n", " ", letraCancion))
+```
+
+# Análisis de Texto
+
+Ahora resta contar las palabras más usadas en el texto. Debido a que el paquete no tiene stopwords en español, vamos a sacarlas de otro lado.
+```{r}
+stopWords <- scan("http://www.webmining.cl/wp-content/uploads/2011/03/stopwords.es.txt", character())
+customStopWords <- strsplit("vas pa vos bis has estribillo qe ie ii mmm mmmm eh oh na mee repite bom taka ye", " ")[[1]]
+stopWords <- c(stopWords, customStopWords)
+```
+
+Ahora, con textos completos y limpios procedemos a sacar las métricas. Para ello recurriremos al paquete tidytext que con un simple metodo unnest_tokens pasa cualquier texto al formato tidy, utilizando como elemento básico la palabra. 
+```{r}
+topN <- 15
+dataCanciones %>%
+    select(nombreArtista, letraCancion) %>% 
+    unnest_tokens(palabra, letraCancion) %>% 
+    filter(!(palabra %in% stopWords)) %>%
+    group_by(nombreArtista) %>%
+    count(palabra) %>%
+    arrange(nombreArtista, desc(n)) %>%
+    slice(1:topN) %>% 
+    mutate(ranking = row_number()) %>% 
+    select(nombreArtista, palabra, ranking) %>% 
+    spread(nombreArtista, palabra)
+```
+
+# Conclusión
+
+El segundo interés que tenía es el de demostrar que con poco esfuerzo es posible generar datos de interés y contribuir con periodistas a generar notas. R, como herramienta de análisis, permite con poco esfuerzo acercar a Programadores y Periodistas; un acercamiento que es cada vez más necesario en la era digital y algo que promovemos fuertemente desde [Open Data Córdoba](http://www.opendatacordoba.org/).
