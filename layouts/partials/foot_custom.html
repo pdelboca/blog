@@ -6,3 +6,9 @@
  hljs.configure({languages: []});
  hljs.initHighlightingOnLoad();
 </script>
+
+{{ if .IsPage }}
+  {{ template "_internal/disqus.html" . }}
+{{ end }}
+
+{{ template "_internal/google_analytics.html" . }}
