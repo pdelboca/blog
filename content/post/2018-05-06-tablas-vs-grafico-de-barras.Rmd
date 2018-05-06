@@ -1,0 +1,94 @@
+---
+title: Tablas vs Grafico de Barras
+author: pdelboca
+date: '2018-05-06'
+slug: tablas-vs-grafico-de-barras
+categories: []
+tags:
+  - dataviz
+  - ggplot2
+---
+
+Hace poco estuve trabajando en un post para [Open Data Córdoba](http://blog.opendatacordoba.org) en cual tenía que mostrar diversos valores para diversas categorías. Mi primer instinto fue cargar ggplot2 pero me enfrentaba a varias problemáticas:
+
+ * Los nombres de las categorías eran muy largos, lo cual complicaba los labels del gráfico
+ * Los valores numéricos eran ordenes de magnitud diferentes, teniendo en los 10 primeros millones y miles, lo cual hacía que las barras fueran confusas
+ * Me parecía demasiado overhead un gráfico para mostrar esos valores
+ * Si bien, la diferencia entre los valores era importante, quería hacer énfasis en el valor numérico de cada variable. Quería que el número sea claro.
+ 
+¿No sería más simple, mostrar esos valores en una simple tabla?
+ 
+## Visualizando valores en tablas
+
+Buscando opciones de visualización me encontré con la funcion **kable** del paquete knitr, el paquete [kableExtra](https://github.com/haozhu233/kableExtra) y el paquete [formattable](https://github.com/renkun-ken/formattable) que me permitieron resolver la problemática de una manera súper elegante.
+
+Voy a replicar aquí la obtención de datos y la visualización
+
+### Obtención de Datos
+```{r, warning=FALSE, message=FALSE}
+library(readr)
+library(dplyr)
+
+pauta201702 <- read_csv("http://datos.gob.ar/dataset/122808ec-dcd1-4a9b-aafe-8fa80ac2a2f4/resource/79557a3e-c155-4a48-83f5-bd5bf1973555/download/pauta-oficial-segundo-semestre-2017.csv")
+pauta201701 <- read_csv("http://datos.gob.ar/dataset/122808ec-dcd1-4a9b-aafe-8fa80ac2a2f4/resource/6cc9c4b4-fbc4-41dd-8f01-7d1dedbed596/download/pauta-publicitaria-primer-semestre-2017.csv")
+
+pauta201702$es_canje <- NULL
+pauta <- rbind(pauta201701, pauta201702)
+rm(pauta201702, pauta201701)
+
+pauta <- pauta %>%
+  filter(provincia_medio == "Cordoba")
+```
+
+### Visualización en Tabla
+```{r, warning=FALSE, message=FALSE}
+library(knitr)
+library(kableExtra)
+library(formattable)
+
+# Reemplazo formatter::color_bar con version propia dado que el parametro rtl rompia la visualizacion
+color_bar <- function(color = "lightgray", fun = "proportion", ...) {
+  fun <- match.fun(fun)
+  formatter("span",
+    style = function(x) style(
+      display = "inline-block",
+      #direction = "rtl",
+      "border-radius" = "4px",
+      "padding-right" = "2px",
+      "background-color" = csscolor(color),
+      width = percent(fun(as.numeric(x), ...))
+    ))
+}
+
+pauta %>%
+  group_by(campania) %>%
+  summarise(total_con_iva = sum(total_con_iva)) %>%
+  arrange(desc(total_con_iva)) %>%
+  select('Campaña' = campania,
+         Total = total_con_iva) %>%
+  mutate(Total = currency(Total, "$", format = "d"),
+         Total = color_bar("lightgreen")(Total)) %>%
+  head(10) %>%
+  kable("html", escape = FALSE) %>%
+  kable_styling("hover", full_width = FALSE) %>%
+  add_header_above(
+    c("Pauta Oficial Nacional en medios de Córdoba (2017) - Top 10" = 2)
+    )
+```
+
+## Conclusiones
+
+Algunos de los beneficios de la Tabla Obtenida:
+ 
+ * Los paquetes son compatibles con el pipe de R y tidyverse
+ * Me permite visualizar correctamente los nombres de las Campañas
+ * Los valores de cada campaña son claramente legibles
+ * la función color_bar() me permite sutilmente dar a cuenta de un vistazo de la desproporción entre el valor de las variables
+
+
+Dejo un link con la documentación de todo lo que es posible hacer con [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) y de las ventajas de usar formattable.
+
+## Nota sobre la función color_bar
+
+formattable tiene un bug cuando los valores a mostrar son muy diferentes entre si (cuando la diferencia es exponencial). Para resolverlo sobreescribi la función original del paquete [comentando el atributo direction](https://github.com/renkun-ken/formattable/issues/106).
+
