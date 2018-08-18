@@ -21,7 +21,7 @@ Esta semana en [Twitter](https://twitter.com/dronespleen/status/8040658461969285
 Pusimos manos a la obra y empezamos revisando el [Portal de Datos Abiertos de la Ciudad de Córdoba](https://gobiernoabierto.cordoba.gob.ar/data/datos-abiertos/categoria/transporte). Allí encontramos datos sobre el uso del Transporte Urbano de Córdoba.
 
 ```{r}
-datos <- read.csv("../../data/transporte-urbano-cordoba/pasajeros_y_kilometros_2012_a_2016.csv", 
+datos <- read.csv("../../static/data/transporte-urbano-cordoba/pasajeros_y_kilometros_2012_a_2016.csv", 
                  dec = ",",
                  stringsAsFactors = FALSE)
 

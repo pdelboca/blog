@@ -40,12 +40,12 @@ Los datos del precio de los peajes, fueron recopilados a mano de distintas notas
 
 ## Limpieza de Datos
 ```{r}
-dfPrecio <- read.csv('../../data/recaudacion-peajes-cordoba/precio_peajes.csv',
+dfPrecio <- read.csv('../../static/data/recaudacion-peajes-cordoba/precio_peajes.csv',
                      dec=",", stringsAsFactors = FALSE)
 dfPrecio$Ruta <- tolower(dfPrecio$Ruta)
 colnames(dfPrecio) <- c("ruta", "2013", "2014", "2015", "2016")
 
-dfPeajes <- read.csv('../../data/recaudacion-peajes-cordoba/transito_peajes.csv',
+dfPeajes <- read.csv('../../static/data/recaudacion-peajes-cordoba/transito_peajes.csv',
                      dec=",")
 colnames(dfPeajes) <- c("fecha", "total", "ruta 20", "ruta 5", "ruta 36 bower",
                         "ruta 9 sur", "autopista cba-pilar", "ruta 19", "ruta 9 norte",

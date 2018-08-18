@@ -16,7 +16,7 @@ tags:
 <div id="datos-ipc-cordoba" class="section level4">
 <h4>Datos IPC Córdoba</h4>
 <pre class="r"><code># http://estadistica.cba.gov.ar/Publicaciones/InformesEcon%C3%B3micos/tabid/896/language/es-AR/Default.aspx
-df &lt;- read.csv(&#39;../../data/inflacion-vs-paritarias/ipc_cordoba_acumulado.csv&#39;, stringsAsFactors = FALSE)
+df &lt;- read.csv(&#39;../../static/data/inflacion-vs-paritarias/ipc_cordoba_acumulado.csv&#39;, stringsAsFactors = FALSE)
 df$variacion &lt;- gsub(&#39;,&#39;,&#39;.&#39;,df$variacion)
 df$variacion &lt;- as.numeric(df$variacion) * 100
 df$variacion &lt;- round(df$variacion, 2)

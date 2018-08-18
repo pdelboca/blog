@@ -17,7 +17,7 @@ tags:
 <div id="carga-de-datos" class="section level2">
 <h2>Carga de Datos:</h2>
 <p>Los Datos referidos a Jubilaciones y pensiones fueron obtenidos del <a href="http://www.cajajubilaciones.cba.gov.ar/portal/catalogo_de_datos">Catalogo de Datos de la Caja de Jubilaciones</a>.</p>
-<pre class="r"><code>df &lt;- read.csv(&#39;../../data/caja-de-jubilaciones-cba/Beneficiarios_201606.csv&#39;, sep=&quot;;&quot;,
+<pre class="r"><code>df &lt;- read.csv(&#39;../../static/data/caja-de-jubilaciones-cba/Beneficiarios_201606.csv&#39;, sep=&quot;;&quot;,
                  fileEncoding = &#39;iso-8859-1&#39;, row.names = NULL)
 
 names(df)[3] &lt;- &quot;Sector&quot;

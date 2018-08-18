@@ -23,12 +23,12 @@ tags:
 </div>
 <div id="limpieza-de-datos" class="section level2">
 <h2>Limpieza de Datos</h2>
-<pre class="r"><code>dfPrecio &lt;- read.csv(&#39;../../data/recaudacion-peajes-cordoba/precio_peajes.csv&#39;,
+<pre class="r"><code>dfPrecio &lt;- read.csv(&#39;../../static/data/recaudacion-peajes-cordoba/precio_peajes.csv&#39;,
                      dec=&quot;,&quot;, stringsAsFactors = FALSE)
 dfPrecio$Ruta &lt;- tolower(dfPrecio$Ruta)
 colnames(dfPrecio) &lt;- c(&quot;ruta&quot;, &quot;2013&quot;, &quot;2014&quot;, &quot;2015&quot;, &quot;2016&quot;)
 
-dfPeajes &lt;- read.csv(&#39;../../data/recaudacion-peajes-cordoba/transito_peajes.csv&#39;,
+dfPeajes &lt;- read.csv(&#39;../../static/data/recaudacion-peajes-cordoba/transito_peajes.csv&#39;,
                      dec=&quot;,&quot;)
 colnames(dfPeajes) &lt;- c(&quot;fecha&quot;, &quot;total&quot;, &quot;ruta 20&quot;, &quot;ruta 5&quot;, &quot;ruta 36 bower&quot;,
                         &quot;ruta 9 sur&quot;, &quot;autopista cba-pilar&quot;, &quot;ruta 19&quot;, &quot;ruta 9 norte&quot;,

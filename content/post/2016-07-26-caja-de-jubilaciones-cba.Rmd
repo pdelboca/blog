@@ -22,7 +22,7 @@ Siguiendo la iniciativa de Datos Abiertos, la Caja de Jubilaciones pone a dispos
 Los Datos referidos a Jubilaciones y pensiones fueron obtenidos del [Catalogo de Datos de la Caja de Jubilaciones](http://www.cajajubilaciones.cba.gov.ar/portal/catalogo_de_datos).
 
 ```{r, cache=TRUE}
-df <- read.csv('../../data/caja-de-jubilaciones-cba/Beneficiarios_201606.csv', sep=";",
+df <- read.csv('../../static/data/caja-de-jubilaciones-cba/Beneficiarios_201606.csv', sep=";",
                  fileEncoding = 'iso-8859-1', row.names = NULL)
 
 names(df)[3] <- "Sector"
