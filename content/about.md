@@ -16,6 +16,8 @@ Information System Engineer & Data Enthusiast. MOOCs addict. Blogger at Open Dat
 
 Most recent trainings and courses I've made
 
+- [Building Dashboards with shinydashboard Course](https://www.datacamp.com/statement-of-accomplishment/course/1ed7d0ff94129005ce003c2b8df7e986f0e9db72)
+
 - [Building Web Applications in R with Shiny Course](https://www.datacamp.com/statement-of-accomplishment/course/f8b0676fd7872a5e55cc115b3f9998145c3835f2)
 
 - [Cluster Analysis in R](https://www.datacamp.com/statement-of-accomplishment/course/ace2d4209546529fcf995c97bf372e594d72cea1)
