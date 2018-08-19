@@ -12,7 +12,7 @@ Information System Engineer & Data Enthusiast. MOOCs addict. Blogger at Open Dat
 
 - [Linkedin](https://www.linkedin.com/in/patriciodelboca/)
 
-## MOOCs and Trainigns
+## MOOCs and Trainings
 
 Most recent trainings and courses I've made
 

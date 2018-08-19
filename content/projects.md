@@ -8,7 +8,7 @@ title: Projects
 
 ## Reservas BCRA
 
-Static Dashboard built with flexdashboard to visualize the Central Bank of Argentina reserves over time. Used dygraphs library to plot the timeline and rvest package to scrape the values from the Web. [Link](https://pdelboca.github.io/reservas-bcra/)
+Static Dashboard built with flexdashboard to visualize Argentina's Central Bank reserves over time. Used dygraphs library to plot the timeline and rvest package to scrape the values from the Web. [Link](https://pdelboca.github.io/reservas-bcra/)
 
 ## Shiny-Golf
 
@@ -28,7 +28,7 @@ Static dashboard built with flexdashboard to visualize contributos to Union Por 
 
 ## Exploratory Data Analysis of World's Forest Coverage
 
-One of my first projects I've made for Udemy's Course: Data Analysis with R back in 2015. I explored worl wide Forest Coverage, Agriculture and GDP from public datasets.
+One of my first projects I've made for Udemy's Course: Exploratory Data Analysis with R back in 2015. I explored world wide Forest Coverage, Agriculture and GDP from public datasets.
 
 - [Link - Forest Coverage](https://rpubs.com/pdelboca/forest-coverage)
 
