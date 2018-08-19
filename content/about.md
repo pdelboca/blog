@@ -2,7 +2,7 @@
 title: About Patricio Del Boca
 ---
 
-Information System Engineer & Data Enthusiast. MOOCs addict. Blogger at Open Data Cordoba. Minimalist style of life. Individuals and interactions over almost everything.
+Information System Engineer & Data Enthusiast. MOOCs addict & R lover. Blogger at **Open Data Cordoba**. Minimalist style of life. Individuals and interactions over almost everything...
 
 ## Social Media
 
