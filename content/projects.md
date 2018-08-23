@@ -1,5 +1,5 @@
 ---
-title: Projects
+title: Personal Projects
 ---
 
 ## Open Data Cordoba's Blog
