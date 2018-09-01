@@ -16,6 +16,10 @@ Information System Engineer & Data Enthusiast. Lead Consultor and Data Scientist
 
 Most recent trainings and courses I've made
 
+- [Shiny Fundamentals with R Track](https://www.datacamp.com/statement-of-accomplishment/track/90af9b24825036aa51e0172efad2dfde0e85f193)
+
+- [Building Web Applications in R with Shiny: Case Studies Course](https://www.datacamp.com/statement-of-accomplishment/course/291f56bc30d964614d186b466161a3cbea0ee12d)
+
 - [Building Dashboards with flexdashboard Course](https://www.datacamp.com/statement-of-accomplishment/course/d127a342c8011caea7ebf660e01f28df70bb0899)
 
 - [Building Dashboards with shinydashboard Course](https://www.datacamp.com/statement-of-accomplishment/course/1ed7d0ff94129005ce003c2b8df7e986f0e9db72)

@@ -6,6 +6,10 @@ title: Personal Projects
 
 **Open Data Córdoba** is a non-profit organization created to promote Open Data and Open Government standards. We also participate in Hackatons, events and develop Open Source applications to encourage Civic Hacking. [Link](http://blog.opendatacordoba.org/author/pdelboca/)
 
+## georefar
+
+**georefar** is a R wrapper for Argentina's Geographical Data Standardization Service API ([georef-ar](https://georef-ar-api.readthedocs.io/es/latest/)). The package is Open Source and is available to install from it's [github page](https://github.com/pdelboca/georefar). 
+
 ## Reservas BCRA
 
 Static Dashboard built with flexdashboard to visualize Argentina's Central Bank reserves over time. Used dygraphs library to plot the timeline and rvest package to scrape the values from the Web. [Link](https://pdelboca.github.io/reservas-bcra/)
