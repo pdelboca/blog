@@ -16,6 +16,8 @@ Information System Engineer & Data Enthusiast. Lead Consultor and Data Scientist
 
 Most recent trainings and courses I've made
 
+- [Text Mining: Bag of Words](https://www.datacamp.com/statement-of-accomplishment/course/4b6a809b5d2e1cdbf8c637a4b3911bce93dde9f1)
+
 - [Shiny Fundamentals with R Track](https://www.datacamp.com/statement-of-accomplishment/track/90af9b24825036aa51e0172efad2dfde0e85f193)
 
 - [Building Web Applications in R with Shiny: Case Studies Course](https://www.datacamp.com/statement-of-accomplishment/course/291f56bc30d964614d186b466161a3cbea0ee12d)

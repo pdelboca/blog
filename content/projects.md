@@ -6,6 +6,10 @@ title: Personal Projects
 
 **Open Data Córdoba** is a non-profit organization created to promote Open Data and Open Government standards. We also participate in Hackatons, events and develop Open Source applications to encourage Civic Hacking. [Link](http://blog.opendatacordoba.org/author/pdelboca/)
 
+## Relevamiento Precios Claros
+
+We're building a tool to monitor inflation and prices in Argentina. The tool is a scrapper of Precios Claros portal and some Python code to analyze the data. [Link](https://github.com/pdelboca/datasets_preciosclaros/blob/master/Analisis%20mes%20de%20Septiembre.ipynb)
+
 ## georefar
 
 **georefar** is a R wrapper for Argentina's Geographical Data Standardization Service API ([georef-ar](https://georef-ar-api.readthedocs.io/es/latest/)). The package is Open Source and is available to install from it's [github page](https://github.com/pdelboca/georefar). 
@@ -29,6 +33,18 @@ Static timeline to keep track of news durings 2016 Campaign against Electronic V
 ## 2015 Election Campaign Contributors
 
 Static dashboard built with flexdashboard to visualize contributos to Union Por Cordoba's campaign during 2015 election. [Link](http://www.opendatacordoba.org/mapa-aportantes-upc/)
+
+## 2015 Election Analysis
+
+The goal of this project was to monitor suspicious voting centers using Open Data. [Link](https://github.com/pdelboca/primarias-2015/blob/master/PASO%20Presidenciales%202015.ipynb)
+
+## Exploratory Data Analysis of Buenos Aires Tolls
+
+This is also one of my first data analysis projects, using Open Data from Buenos Aires portal I create some visualizations and machine learning models to predict the number of cars passing through a toll in a certain period of time.
+
+- [Flow of Cars in Tolls](https://github.com/pdelboca/ausa-peajes-python/blob/master/Peajes%20AUSA.ipynb) 
+
+- [Time Series Analysis](https://github.com/pdelboca/time-series/blob/master/Time%20Series%20Prediction%20with%20Python.ipynb) 
 
 ## Exploratory Data Analysis of World's Forest Coverage
 
