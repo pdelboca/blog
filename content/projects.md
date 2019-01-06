@@ -2,6 +2,10 @@
 title: Personal Projects
 ---
 
+## FuncionariosCBA
+
+Project in collaboration with Open Data Cordoba to detect and inform changes in Government Officials and Elected Authorities both for local and state agencies. [Link](https://github.com/OpenDataCordoba/funcionarios-cordoba)
+
 ## Open Data Cordoba's Blog
 
 **Open Data Córdoba** is a non-profit organization created to promote Open Data and Open Government standards. We also participate in Hackatons, events and develop Open Source applications to encourage Civic Hacking. [Link](http://blog.opendatacordoba.org/author/pdelboca/)

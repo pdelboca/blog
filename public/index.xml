@@ -124,9 +124,9 @@ Social Media  Github
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/</guid>
-      <description>Open Data Cordoba&amp;rsquo;s Blog Open Data Córdoba is a non-profit organization created to promote Open Data and Open Government standards. We also participate in Hackatons, events and develop Open Source applications to encourage Civic Hacking. Link
-Relevamiento Precios Claros We&amp;rsquo;re building a tool to monitor inflation and prices in Argentina. The tool is a scrapper of Precios Claros portal and some Python code to analyze the data. Link
-georefar georefar is a R wrapper for Argentina&amp;rsquo;s Geographical Data Standardization Service API (georef-ar).</description>
+      <description>FuncionariosCBA Project in collaboration with Open Data Cordoba to detect and inform changes in Government Officials and Elected Authorities both for local and state agencies. Link
+Open Data Cordoba&amp;rsquo;s Blog Open Data Córdoba is a non-profit organization created to promote Open Data and Open Government standards. We also participate in Hackatons, events and develop Open Source applications to encourage Civic Hacking. Link
+Relevamiento Precios Claros We&amp;rsquo;re building a tool to monitor inflation and prices in Argentina.</description>
     </item>
     
   </channel>
