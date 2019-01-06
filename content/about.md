@@ -2,7 +2,7 @@
 title: About Patricio Del Boca
 ---
 
-Information System Engineer & Data Enthusiast. Lead Consultor and Data Scientist at **Pi Data Strategy & Conslting**. MOOCs addict & R lover. Member and blogger at **Open Data Cordoba**. Minimalist style of life. Individuals and interactions over almost everything...
+Information System Engineer & Data Enthusiast. MOOCs addict. Lead Consultor and Data Scientist at **Pi Data Strategy & Conslting**.  Member and blogger at **Open Data Cordoba**. Minimalist style of life. Civic Hacking & Open Gov FTW!
 
 ## Social Media
 
@@ -15,6 +15,16 @@ Information System Engineer & Data Enthusiast. Lead Consultor and Data Scientist
 ## MOOCs and Trainings
 
 Most recent trainings and courses I've made
+
+- [Python Beyond the Basics](https://drive.google.com/file/d/1gaKy4tVcL6POAovpePYH6jfqVROgIPat/view?usp=sharing)
+
+- [Anomaly Detection ir R](https://www.datacamp.com/statement-of-accomplishment/course/1d55c4b0d6c259400512ac84543dc86d73fdc25d)
+
+- [Manipulating DataFrames with pandas](https://www.datacamp.com/statement-of-accomplishment/course/fde61a23121bc9f9b17ee0019be0d6668507561a)
+
+- [Intermediate Python for Data Science](https://www.datacamp.com/statement-of-accomplishment/course/15cacd08160cca02ecdf3b5a2c7651e66e9c1885)
+
+- [pandas Foundations](https://www.datacamp.com/statement-of-accomplishment/course/46a259f7b3b0803ae4c73f82490abac9360e3f29)
 
 - [Text Mining: Bag of Words](https://www.datacamp.com/statement-of-accomplishment/course/4b6a809b5d2e1cdbf8c637a4b3911bce93dde9f1)
 
